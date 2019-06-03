@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apr1c07</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://apr1c07.github.io/img/favicon.ico">
+  <!-- BootstrapのCSS読み込み -->
+  <link href="https://apr1c07.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery読み込み -->
+  <script src="https://apr1c07.github.io/js/jquery-3.4.1.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="https://apr1c07.github.io/js/bootstrap.min.js"></script>
+  <!-- Font Awesomeの読み込み　-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" href="https://apr1c07.github.io/img/favicon.ico">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139886221-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-139886221-1');
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
+    <a class=" navbar-brand" href="https://apr1c07.github.io/">
+    <img src="https://apr1c07.github.io/img/Navi_logo.svg" width="30" height="30" class="d-inline-block align-top" alt="ブランド">
+    Apr1c07
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Navber">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://apr1c07.github.io/">About</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Product
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://apr1c07.github.io/R6S_Hipfire_Tweak/">R6S: Hipfire Tweak</a>
+            <a class="dropdown-item disabled" href="#">R6S: Sensitivity Optimizer(Unpublished)</a>
+            <a class="dropdown-item " href="#">R6S: How to have same sensitivity between hipfire and ADS</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="http://spec-gaming.com">Spec Gaming</a>
+          </div>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+  <p style="margin:30px;"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div>R6Sの公式より、各サイトの乗数が公開されましたので、HipfileとADSの感度を同じにしたい人向けに設定を書いておきます。</div>
+        <br>
+        <div>その前に少し。公式によるとR6Sの各サイトのADS時の感度倍率は以下のように計算されています。</div>
+        <br>
+        <div class="text-center">
+          <strong>
+            <div>ADS modifier = min(max((Aim Down Sights x XFactorAiming) x Optic Modifier), 0), 1)</div>
+            <div>ADS Input Yaw = Hipfire Input Yaw x ADS modifier</div>
+            <div>ADS Input Pitch = Hipfire Input Pitch x ADS modifier</div>
+          </strong>
+        </div>
+        <br>
+        <div>つまりADSがHipfireよりも速くなることはないのです。</div>
+        <div>したがってAcogサイトとHipfireを同じ感度(数値上)にしようとした場合、すべてのサイトの感度がHipfireと同じになります。</div>
+        <br>
+        <div>これを基に考えると、以下のような設定が挙げられます。実用的でないものもありますが一応。</div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-bordered table-hover table-sm" id="UserSettingTable">
+        <thead class="thead-dark">
+          <tr class="info" scope="row">
+            <th>サイトの種類</th>
+            <th>ADS</th>
+            <th>XfactorAiming</th>
+            <th>ADS modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ACOG</td>
+            <td>3</td>
+            <td>0.952381</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>等倍サイト</td>
+            <td>1</td>
+            <td>1.111112</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>OTs-03フリップサイト</td>
+            <td>3</td>
+            <td>1.111112</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>ブリーチングトーチ</td>
+            <td>100</td>
+            <td>0.012500</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</body>
+</html>
