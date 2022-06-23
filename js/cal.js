@@ -1,5 +1,5 @@
 function cal() {
-  var InputURL = document.getElementById('inputURL').value;
+  var InputURL = document.getElementById('inputValue').value;
   var a = InputURL * 500 / 467;
-  document.getElementById("inputURL").value = a;
+  document.getElementById("outputCal").value = a;
 }
