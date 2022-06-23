@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
   <link rel="apple-touch-icon" href="https://apr1c07.github.io/img/favicon.ico">
+  <!-- jsの読み込み　-->
+  <script src="https://apr1c07.github.io/js/cal.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139886221-1"></script>
   <script>
@@ -98,7 +100,8 @@
               <ul>
                 <li>パーツ代</li>
                 <li>製作技術料:￥6,000(LEDバックライトがない場合￥5,000)</li>
-              </ul> 
+                <li>お取り寄せ料(パーツ購入時に送料が発生した場合)</li>
+              </ul>
               ※送料はお見積りに含みませんが着払いとなります</a>
             </li>
             <li>オプション
@@ -125,11 +128,24 @@
             <li>注文品が届き次第制作を開始いたします。(ファームウェアはキットのデフォルト)</li>
             <li>制作完了後動作確認として1～2日頂戴し、問題がないようでしたら商品を発送いたします。(着払い)</li>
             <li>商品が届きましたらお客様で動作チェックを行なっていただきまして、問題がないようでしたら、お取引終了となります。</li>
-           </ol>
-           <br>
-           <div class="text font-weight-bold" style="font-size: 1.25rem">◯ ご依頼から商品到着まで【ラクマ経由】</div>
-          <a>ラクマは追加で6%+税が手数料として掛かってしまうため。お見積もり金額×33/467円(1円未満切り上げ)を追加で頂戴いたします。ご了承下さい。</a>
-           <ol>
+          </ol>
+          <br>
+          <div class="text font-weight-bold" style="font-size: 1.25rem">◯ ご依頼から商品到着まで【ラクマ経由】</div>
+          <a>ラクマは追加で6%+税が手数料として掛かってしまうため。(パーツ代・製作技術料・お取り寄せ料)×33/467円(1円未満切り上げ)を追加で頂戴いたします。ご了承下さい。</a><br><br>
+          ※お見積りシュミレーション
+          <div class="input-group">
+            <a>　料金：</a>
+            <input type="text" class="form-control" 　name="inputValue" id="inputValue" value="">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" onclick="URLConversion()"> 変換 </button>
+            </span>
+          </div>
+          <div class="input-group">
+            <a>　お見積り金額：</a>
+            <input type="text" class="form-control" 　name="outputCal" id="outputCal" value="">
+          </div>
+          <br>
+          <ol>
             <li>ご依頼を元にお見積もりをお渡しします。</li>
             <li><a href="https://fril.jp">ラクマ</a>に出品いたします。(着払い)</li>
             <li>商品URLをお渡ししますので、ご購入・ご入金をしていただきます。</li>
@@ -159,25 +175,33 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Helix_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#555" dy=".3em"></text></img>
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Helix_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#555" dy=".3em"></text></img>
               <div class="carousel-caption d-none d-md-block">
                 <h5>Helix</h5>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/HelixPico_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"/><text x="50%" y="50%" fill="#444" dy=".3em"></text></img>
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/HelixPico_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#666" /><text x="50%" y="50%" fill="#444" dy=".3em"></text></img>
               <div class="carousel-caption d-none d-md-block">
                 <h5>Helix Pico</h5>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Korne_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"/><text x="50%" y="50%" fill="#333" dy=".3em"></text></img>
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Korne_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#555" /><text x="50%" y="50%" fill="#333" dy=".3em"></text></img>
               <div class="carousel-caption d-none d-md-block">
                 <h5>Korne</h5>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Suihankey_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"/><text x="50%" y="50%" fill="#333" dy=".3em"></text></img>
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="400" height="400" src="https://apr1c07.github.io/img/Suihankey_photo.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#555" /><text x="50%" y="50%" fill="#333" dy=".3em"></text></img>
               <div class="carousel-caption d-none d-md-block">
                 <h5>Suihankey</h5>
               </div>
